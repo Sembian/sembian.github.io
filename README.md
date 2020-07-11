@@ -1,1 +1,1 @@
-# sembian.github.io
+# sembian.github.io - CS 498 Narrative Visualization
