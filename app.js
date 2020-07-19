@@ -278,7 +278,7 @@ function mouseout() {
   }
 var data;
 // Load data
-d3.csv('data2.csv',type).then( res => {
+d3.csv('data333.csv',type).then( res => {
     console.log('Local CSV:', res);
     data = res;
     initScreen(res);
