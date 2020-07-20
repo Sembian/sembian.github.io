@@ -236,36 +236,18 @@ function mouseout() {
 
   }
 
-  function getSmoothInterpolation(data) {
-    return function (d, i, a) {
-        var interpolate = d3.scaleLinear()
-            .domain([0,1])
-            .range([1, data.length + 1]);
-  
-        return function(t) {
-            var flooredX = Math.floor(interpolate(t));
-            var weight = interpolate(t) - flooredX;
-            var interpolatedLine = data.slice(0, flooredX);
-                
-            if(flooredX > 0 && flooredX < 31) {
-                var weightedLineAverage = data[flooredX].y * weight + data[flooredX-1].y * (1-weight);
-                interpolatedLine.push({"x":interpolate(t)-1, "y":weightedLineAverage});
-                }
-        
-            return lineFunction(interpolatedLine);
-            }
-        }
-    }
   
   // Data Utilities
   const parseNA = string => (string ==='NA' ? undefined: string);
   const parseDate = string => d3.timeParse('%Y-%m-%d')(string);
-  
+  const referencesByYear = {};
+
   // Type Conversion
   function type(d){
       
-
+      
       return{
+        
         year: parseInt(+d.Year),
         cause: d["Cause of death"],
         category: d["Category"],
@@ -278,8 +260,9 @@ function mouseout() {
   }
 var data;
 // Load data
-d3.csv('data333.csv',type).then( res => {
-    console.log('Local CSV:', res);
+d3.csv('data.csv',type).then( res => {
+    console.log('Local CSV:', referencesByYear);
+    //debugger;
     data = res;
     initScreen(res);
 });
