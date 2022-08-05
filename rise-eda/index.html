@@ -50,30 +50,30 @@ var data_file = "data/rise-data.csv"
 var polygons_file = "data/Kenyan-Counties.geojson"
 
 var dimensions = ['EV-Item 1 // Period Pain',
-                  'EV-Item 2',
-                  'EV-Item 3',
-                  'EV-Item 4',
-                  'EV-Item 5',
-                  'EV-Item 6',
-                  'EV-Item 7',
-                  'EV-Item 8',
-                  'EV-Item 9',
-                  'EV-Item 10',
-                  'EV-Item 11',
-                  'EV-Item 12',
+                  'EV-Item 2 // Nonmenstrual // pain',
+                  'EV-Item 3 // Sexual pain',
+                  'EV-Item 4 // Bleeding',
+                  'EV-Item 5 // Bowel/Bladder',
+                  'EV-Item 6 // Energy // Fatigue',
+                  'EV-Item 7 // Sexual // wellbeing',
+                  'EV-Item 8 // Fertility',
+                  'EV-Item 9 // Social Activities // and relationships',
+                  'EV-Item 10 // Work. School // daily tasks',
+                  'EV-Item 11 // Self Image // and perception',
+                  'EV-Item 12 // Emotional // wellbeing',
                   'EV Mean',
-                  'M3V- Item 1',
-                  'M3V- Item 2',
-                  'M3V- Item 3',
-                  'M3V- Item 4',
-                  'M3V- Item 5',
-                  'M3V- Item 6',
-                  'M3V- Item 7',
-                  'M3V- Item 8',
-                  'M3V- Item 9',
-                  'M3V- Item 10',
-                  'M3V- Item 11',
-                  'M3V- Item 12',
+                  'M3V- Item 1 // Period Pain',
+                  'M3V- Item 2 // Nonmenstrual // pain',
+                  'M3V- Item 3 // Sexual pain',
+                  'M3V- Item 4 // Bleeding',
+                  'M3V- Item 5 // Bowel/Bladder',
+                  'M3V- Item 6 // Energy // Fatigue',
+                  'M3V- Item 7 // Sexual // wellbeing',
+                  'M3V- Item 8 // Fertility',
+                  'M3V- Item 9 // Social Activities // and relationships',
+                  'M3V- Item 10 // Work. School // daily tasks',
+                  'M3V- Item 11 // Self Image // and perception',
+                  'M3V- Item 12 // Emotional // wellbeing',
                   'M3V Mean',
                   ];
 
@@ -84,11 +84,11 @@ var blue_to_red = d3.scale.quantize()
   .domain([0, 12])
   .range(["blue", "grey", "red"])
 
-var main_parcoords_alpha = 0.6
+var main_parcoords_alpha = 0.3
 
 var parcoords = d3.parcoords()("#parcoords")
   .alpha(main_parcoords_alpha)
-  .alphaOnBrushed(0.2)
+  .alphaOnBrushed(0.7)
   .mode("default")
   .height(d3.max([document.body.clientHeight-326, 220]))
   .height(350)  
@@ -113,7 +113,7 @@ function parallelCoordinates(data) {
     .dimensions(dimensions)
     .reorderable()
     .brushMode("1D-axes")
-    .smoothness(0.25)
+    .smoothness(0.3)
     .showControlPoints(false)
     .render()
 
