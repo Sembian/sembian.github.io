@@ -90,7 +90,7 @@ var parcoords = d3.parcoords()("#parcoords")
   .alpha(main_parcoords_alpha)
   .alphaOnBrushed(0.2)
   .mode("default")
-  //.height(d3.max([document.body.clientHeight-326, 220]))
+  .height(d3.max([document.body.clientHeight-326, 220]))
   .height(350)  
   .margin({
     top: 70,
@@ -121,6 +121,7 @@ function parallelCoordinates(data) {
     var el = d3.select(this);
     var words = d.split(' // ');
     el.text('');
+    el.style("font-size","10px");
 
     for (var i = 0; i < words.length; i++) {
       var tspan = el.append('tspan').text(words[i]);
